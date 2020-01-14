@@ -51,7 +51,7 @@ class VersionedMapper extends BaseMapper
         $updateNode = new Node(
             $node->getStatus(),
             $updateData,
-            $node->getRole(),
+            $node->getRole()
         );
 
         /** @var Insert $cmd */
@@ -72,7 +72,7 @@ class VersionedMapper extends BaseMapper
         $deleteNode = new Node(
             $node->getStatus(),
             $deleteData,
-            $node->getRole(),
+            $node->getRole()
         );
 
         /** @var Insert $cmd */
@@ -86,7 +86,11 @@ class VersionedMapper extends BaseMapper
 
     protected function queueImmutableUpdate($entity, Node $node, State $state): ContextCarrierInterface
     {
-        $columns = $this->fetchFields($entity);
+        $columns = array_merge(
+            $state->getData(),
+            $this->fetchFields($entity)
+        );
+
         unset($columns[$this->primaryKey]);
 
         // sync the state

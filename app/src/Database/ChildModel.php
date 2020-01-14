@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Database;
 
 use App\Database\Mapper\ChildMapper;
-use Cake\Chronos\Chronos;
 use Cycle\Annotated\Annotation as Cycle;
 
 /**
@@ -20,17 +19,17 @@ use Cycle\Annotated\Annotation as Cycle;
  *      "name": @Cycle\Column(type="string"),
  *      "created_at": @Cycle\Column(type="timestamp", typecast="typecast_datetime"),
  *      "updated_at": @Cycle\Column(type="timestamp", nullable=true, typecast="typecast_datetime"),
- *      "deleted_at": @Cycle\Column(type="timestamp", nullable=true, typecast="typecast_datetime")
+ *      "deleted_at": @Cycle\Column(type="timestamp", nullable=true, typecast="Cake\Chronos\Chronos::parse")
  *     }
  * )
  */
 class ChildModel
 {
-    public ?int $version = null;
-    public ?int $id = null;
-    public ?string $name = null;
+    public $version = null;
+    public $id = null;
+    public $name = null;
 
-    public ?Chronos $created_at = null;
-    public ?Chronos $updated_at = null;
-    public ?Chronos $deleted_at = null;
+    public $created_at = null;
+    public $updated_at = null;
+    public $deleted_at = null;
 }

@@ -211,16 +211,16 @@
         },
         {
             "name": "cycle/migrations",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cycle/migrations.git",
-                "reference": "eb8e0452e24ec1507a8363712c969d27ef13544a"
+                "reference": "e248689180ef06978f3733a7f97bb4af7af4eb92"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cycle/migrations/zipball/eb8e0452e24ec1507a8363712c969d27ef13544a",
-                "reference": "eb8e0452e24ec1507a8363712c969d27ef13544a",
+                "url": "https://api.github.com/repos/cycle/migrations/zipball/e248689180ef06978f3733a7f97bb4af7af4eb92",
+                "reference": "e248689180ef06978f3733a7f97bb4af7af4eb92",
                 "shasum": ""
             },
             "require": {
@@ -246,20 +246,20 @@
                 "MIT"
             ],
             "description": "Cycle ORM Migration generation",
-            "time": "2019-11-19T06:15:19+00:00"
+            "time": "2020-01-14T10:29:33+00:00"
         },
         {
             "name": "cycle/orm",
-            "version": "v1.1.18",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cycle/orm.git",
-                "reference": "b5c8ab2ee672a798bc1e1a9897d81a88db0f1fdf"
+                "reference": "c135a0acd8db247ffa80c6f09c44d5344de91f5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cycle/orm/zipball/b5c8ab2ee672a798bc1e1a9897d81a88db0f1fdf",
-                "reference": "b5c8ab2ee672a798bc1e1a9897d81a88db0f1fdf",
+                "url": "https://api.github.com/repos/cycle/orm/zipball/c135a0acd8db247ffa80c6f09c44d5344de91f5a",
+                "reference": "c135a0acd8db247ffa80c6f09c44d5344de91f5a",
                 "shasum": ""
             },
             "require": {
@@ -276,7 +276,7 @@
                 "phpunit/phpunit": "~7.0",
                 "ramsey/uuid": "^3.8",
                 "spiral/code-style": "^1.0",
-                "spiral/debug": "^1.3",
+                "spiral/dumper": "^1.0",
                 "spiral/tokenizer": "^2.1"
             },
             "type": "library",
@@ -290,7 +290,7 @@
                 "MIT"
             ],
             "description": "PHP DataMapper ORM and Data Modelling Engine",
-            "time": "2019-11-21T13:36:19+00:00"
+            "time": "2020-01-13T14:17:22+00:00"
         },
         {
             "name": "cycle/proxy-factory",
@@ -1801,30 +1801,31 @@
         },
         {
             "name": "spiral/database",
-            "version": "v2.6.10",
+            "version": "v2.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spiral/database.git",
-                "reference": "c24d01eea7bf3fec4c8094316adca3a2e3b9a5f0"
+                "reference": "b6fc56c1de4356751d1589b1eea720d0258031fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spiral/database/zipball/c24d01eea7bf3fec4c8094316adca3a2e3b9a5f0",
-                "reference": "c24d01eea7bf3fec4c8094316adca3a2e3b9a5f0",
+                "url": "https://api.github.com/repos/spiral/database/zipball/b6fc56c1de4356751d1589b1eea720d0258031fa",
+                "reference": "b6fc56c1de4356751d1589b1eea720d0258031fa",
                 "shasum": ""
             },
             "require": {
                 "ext-pdo": "*",
                 "php": "^7.2",
                 "spiral/core": "^1.1",
-                "spiral/logger": "^1.1",
+                "spiral/logger": "^1.0",
                 "spiral/pagination": "^2.2"
             },
             "require-dev": {
                 "mockery/mockery": "^1.1",
                 "phpunit/phpunit": "~7.0",
                 "spiral/code-style": "^1.0",
-                "spiral/debug": "^1.3"
+                "spiral/dumper": "^1.0",
+                "spiral/tokenizer": "^2.1"
             },
             "type": "library",
             "autoload": {
@@ -1843,7 +1844,7 @@
                 }
             ],
             "description": "DBAL, schema introspection, migration and pagination",
-            "time": "2019-12-26T13:51:45+00:00"
+            "time": "2020-01-14T10:15:30+00:00"
         },
         {
             "name": "spiral/debug",

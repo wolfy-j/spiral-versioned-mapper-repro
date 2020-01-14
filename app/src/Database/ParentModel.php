@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace App\Database;
 
-use Cake\Chronos\Chronos;
-use Cycle\Annotated\Annotation as Cycle;
 use App\Database\Mapper\ParentMapper;
+use Cycle\Annotated\Annotation as Cycle;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -27,9 +26,9 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class ParentModel
 {
-    public ?int $version = null;
-    public ?int $id = null;
-    public ?string $name = null;
+    public $version = null;
+    public $id = null;
+    public $name = null;
 
     /**
      * @Cycle\Relation\BelongsTo(target=ChildModel::class, innerKey="child_id", fkCreate=false, indexCreate=false)
@@ -43,9 +42,9 @@ class ParentModel
      */
     public $notes;
 
-    public ?Chronos $created_at = null;
-    public ?Chronos $updated_at = null;
-    public ?Chronos $deleted_at = null;
+    public $created_at = null;
+    public $updated_at = null;
+    public $deleted_at = null;
 
     public function __construct()
     {

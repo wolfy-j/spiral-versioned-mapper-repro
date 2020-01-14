@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Database;
 
+use App\Database\Mapper\TimestampedMapper;
 use Cake\Chronos\Chronos;
 use Cycle\Annotated\Annotation as Cycle;
-use App\Database\Mapper\TimestampedMapper;
 
 /**
  * @Cycle\Entity(
@@ -24,8 +24,8 @@ use App\Database\Mapper\TimestampedMapper;
  */
 class NoteModel
 {
-    public ?int $id = null;
-    public ?string $text = null;
+    public $id = null;
+    public $text = null;
 
     /**
      * @Cycle\Relation\BelongsTo(target=ParentModel::class, innerKey="parent_id", fkCreate=false, indexCreate=false)
@@ -33,7 +33,7 @@ class NoteModel
      */
     public $parent = null;
 
-    public ?Chronos $created_at = null;
-    public ?Chronos $updated_at = null;
-    public ?Chronos $deleted_at = null;
+    public $created_at = null;
+    public $updated_at = null;
+    public $deleted_at = null;
 }

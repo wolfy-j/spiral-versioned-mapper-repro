@@ -11,22 +11,27 @@ use Cycle\ORM\Transaction;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use Spiral\Boot\Environment;
+use Spiral\Database\Database;
 
 abstract class BaseTest extends TestCase
 {
-    protected App $app;
-    protected ContainerInterface $container;
-    protected ORMInterface $orm;
+    protected $app;
+    protected $container;
+    protected $orm;
+    protected $db;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->app = $this->makeApp([
-            'DOTENV_PATH' => __DIR__ . '/../.env.testing',
-        ]);
+        $this->app = $this->makeApp(
+            [
+                'DOTENV_PATH' => __DIR__ . '/../.env.testing',
+            ]
+        );
         $this->container = $this->app->get(ContainerInterface::class);
         $this->orm = $this->app->get(ORMInterface::class)->withHeap(new Heap());
+        $this->db = $this->app->get(Database::class);
     }
 
     protected function makeApp(array $env = []): App
@@ -34,14 +39,18 @@ abstract class BaseTest extends TestCase
         $root = dirname(__DIR__) . '/';
 
         $runtime = sys_get_temp_dir() . '/mapper'; // . uniqid();
-//        dump($runtime);
+        //        dump($runtime);
 
-        return App::init([
-            'root' => $root,
-            'app' => $root . 'app/',
-            'runtime' => $runtime,
-            'cache' => $runtime,
-        ], new Environment($env), false);
+        return App::init(
+            [
+                'root'    => $root,
+                'app'     => $root . 'app/',
+                'runtime' => $runtime,
+                'cache'   => $runtime,
+            ],
+            new Environment($env),
+            false
+        );
     }
 
     public function transaction($fresh = false): Transaction

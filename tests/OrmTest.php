@@ -12,14 +12,16 @@ class ItemsTest extends BaseTest
 {
     use WithMigrations;
 
-    protected ParentModel $parent;
-    protected ChildModel $child;
-    protected array $notes;
+    protected $parent;
+    protected $child;
+    protected $notes;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->setUpMigrations();
+
+        // $this->db->getDriver()->setLogger(new TestLogger());
 
         $this->parent = new ParentModel();
         $this->parent->id = 100;
@@ -69,6 +71,8 @@ class ItemsTest extends BaseTest
 
     public function testDoesntUpdateUnchangedData()
     {
+        $this->db->getDriver()->setLogger(new TestLogger());
+
         $this->transaction()->persist($this->parent)->run();
 
         $oldVersion = $this->parent->version;
@@ -153,7 +157,7 @@ class ItemsTest extends BaseTest
         /** @var ParentModel $parent */
         $updated = $this->orm->getRepository(ParentModel::class)->findByPK($parent->version);
         count($updated->notes->toArray());
-        dumprr(count($updated->notes->toArray()));
+
         $this->assertEquals(2, count($updated->notes->toArray()));
     }
 
